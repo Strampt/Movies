@@ -28,6 +28,16 @@ $config = [
         'db' => $db,
     ],
     'params' => $params,
+    'controllerMap' => [
+        'migrate' => [
+            'class' => 'yii\console\controllers\MigrateController',
+            'migrationPath' => [
+                '@app/migrations',
+                '@vendor/webvimark/module-user-management/migrations',
+            ]
+        ]
+    ],
+
     /*
     'controllerMap' => [
         'fixture' => [ // Fixture generation command line.
@@ -35,6 +45,12 @@ $config = [
         ],
     ],
     */
+    'modules'=>[
+        'user-management' => [
+            'class' => 'webvimark\modules\UserManagement\UserManagementModule',
+                'controllerNamespace'=>'vendor\webvimark\modules\UserManagement\controllers', // To prevent yii help from crashing
+        ],
+    ],
 ];
 
 if (YII_ENV_DEV) {
