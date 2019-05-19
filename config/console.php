@@ -34,8 +34,8 @@ $config = [
             'migrationPath' => [
                 '@app/migrations',
                 '@vendor/webvimark/module-user-management/migrations',
-            ]
-        ]
+            ],
+        ],
     ],
 
     /*

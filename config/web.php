@@ -19,15 +19,13 @@ $config = [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
-        'components'=>[
-            'user' => [
-                'class' => 'webvimark\modules\UserManagement\components\UserConfig',
-        
-                // Comment this if you don't want to record user logins
-                'on afterLogin' => function($event) {
-                        \webvimark\modules\UserManagement\models\UserVisitLog::newVisitor($event->identity->id);
-                    }
-            ],
+        'user' => [
+            'class' => 'webvimark\modules\UserManagement\components\UserConfig',
+    
+            // Comment this if you don't want to record user logins
+            'on afterLogin' => function($event) {
+                    \webvimark\modules\UserManagement\models\UserVisitLog::newVisitor($event->identity->id);
+                }
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
