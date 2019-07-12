@@ -14,14 +14,14 @@ class m190712_003418_create_movie_table extends Migration
     {
         $this->createTable('{{%movie}}', [
             'id' => $this->primaryKey(),
-            'imbdid' => $this->string(30),
+            'imbdid' => $this->string(30)->notNull(),
             'title' => $this->string(50)->notNull(),
             'year' => $this->integer(),
             'genre' => $this->string(70),
             'director' => $this->string(30),
             'plot' => $this->text(),
             'poster' => $this->string(2000),
-            'imdbvotes' => $this->float(),
+            'imdbrating' => $this->float(),
             'type' => $this->string(15),
         ]);
     }
