@@ -14,7 +14,7 @@ class m190713_223546_create_title_movie_table extends Migration
     {
         $this->createTable('{{%title_movie}}', [
             'id' => $this->primaryKey(),
-            'imdbid' => $this->string(30)->notNull(),
+            'imdbid' => $this->string(30)->notNull()->unique(),
             'title' => $this->string(40)->notNull(),
             'year' => $this->integer(),
             'type' => $this->string(15),
