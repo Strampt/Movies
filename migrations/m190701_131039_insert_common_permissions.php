@@ -16,8 +16,8 @@ class m190701_131039_insert_common_permissions extends Migration
     {
         Permission::assignRoutes(\Yii::$app->getModule('user-management')->commonPermissionName, ['/site/index']);
         Permission::assignRoutes(\Yii::$app->getModule('user-management')->commonPermissionName, ['/site/error']);
-        Permission::assignRoutes(\Yii::$app->getModule('user-management')->commonPermissionName, ['/site/about']);
-        Permission::assignRoutes(\Yii::$app->getModule('user-management')->commonPermissionName, ['/site/contact']);
+        Permission::assignRoutes(\Yii::$app->getModule('user-management')->commonPermissionName, ['/search-movie/view']);
+        Permission::assignRoutes(\Yii::$app->getModule('user-management')->commonPermissionName, ['/title-movie/view']);
     }
 
     /**
