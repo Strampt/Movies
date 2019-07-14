@@ -3,11 +3,10 @@
 use yii\db\Migration;
 use webvimark\modules\UserManagement\models\rbacDB\Permission;
 
-
 /**
- * Class m190701_131039_insert_common_permissions
+ * Class m190714_171228_insert_common_permissions
  */
-class m190701_131039_insert_common_permissions extends Migration
+class m190714_171228_insert_common_permissions extends Migration
 {
     /**
      * {@inheritdoc}
@@ -25,7 +24,7 @@ class m190701_131039_insert_common_permissions extends Migration
      */
     public function safeDown()
     {
-        echo "m190701_131039_insert_common_permissions cannot be reverted.\n";
+        echo "m190714_171228_insert_common_permissions cannot be reverted.\n";
 
         return false;
     }
@@ -39,7 +38,7 @@ class m190701_131039_insert_common_permissions extends Migration
 
     public function down()
     {
-        echo "m190701_131039_insert_common_permissions cannot be reverted.\n";
+        echo "m190714_171228_insert_common_permissions cannot be reverted.\n";
 
         return false;
     }
