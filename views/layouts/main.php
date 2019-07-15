@@ -42,8 +42,8 @@ AppAsset::register($this);
         'encodeLabels' => false,
         'items' => [
             ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
+            ['label' => 'Search', 'url' => ['/search-movie/index']],
+            ['label' => 'Movie', 'url' => ['/title-movie/index']],
             [
                 'label' => 'Administration',
                 'items' => UserManagementModule::menuItems()
