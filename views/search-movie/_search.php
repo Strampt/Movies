@@ -18,15 +18,15 @@ use yii\widgets\ActiveForm;
         ],
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
+    <?php // $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'imdbid') ?>
+    <?php // $form->field($model, 'imdbid') ?>
 
-    <?= $form->field($model, 'title') ?>
+    <?php echo $form->field($model, 'title') ?>
 
-    <?= $form->field($model, 'year') ?>
+    <?php // $form->field($model, 'year') ?>
 
-    <?= $form->field($model, 'type') ?>
+    <?php // $form->field($model, 'type') ?>
 
     <?php // echo $form->field($model, 'poster') ?>
 
