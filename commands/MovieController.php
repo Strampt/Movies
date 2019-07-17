@@ -36,9 +36,10 @@ class MovieController extends Controller
         }
     }
     
-    public function actionInsertTitleMovie($filme) 
+    public function actionInsertTitleMovie($filme, $year) 
     {
-        $urlTMovies = 'http://www.omdbapi.com/?t='.$filme.'&plot=full&apikey=a782fdd1';
+        $filme = str_replace(" ", "+", $filme);
+        $urlTMovies = 'http://www.omdbapi.com/?t='.$filme.'&y='.$year.'&plot=full&apikey=a782fdd1';
         $jsonTMovies = file_get_contents($urlTMovies);
         $dataTMovies = json_decode($jsonTMovies, true);
         $imdbidTMovie = $dataTMovies['imdbID'];
