@@ -34,10 +34,12 @@ class SearchMovieController extends Controller
     {
         $searchModel = new SearchMovieSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $movies = SearchMovie::find()->all();
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'movies' => $movies,
         ]);
     }
 
