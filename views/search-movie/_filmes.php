@@ -6,5 +6,6 @@ use yii\helpers\Html;
 foreach($movies as $movie) {
     echo Html::a($movie->title, ['/search-movie/view', 'id'=>$movie['id']]);
     echo $movie->year; 
-}    
+}
+//teste para github contribuitions    
 ?>
