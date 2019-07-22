@@ -22,7 +22,7 @@ use yii\widgets\ActiveForm;
 
     <?php // $form->field($model, 'imdbid') ?>
 
-    <?php echo $form->field($model, 'title') ?>
+    <?php echo $form->field($model, 'title')->input('text', ['placeholder' => Yii::t('app', 'Enter a Movie')]); ?>
 
     <?php // $form->field($model, 'year') ?>
 
