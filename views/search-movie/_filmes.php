@@ -1,11 +1,13 @@
 <?php
 use yii\helpers\Html;
+use yii\data\ActiveDataProvider;
+use app\models\SearchMovie;
+use yii\helpers\Url;
 ?>
-<?php
-// criar uma view com isto em baixo e aqui meto a render a view criada, 
-foreach($movies as $movie) {
-    echo Html::a($movie->title, ['/search-movie/view', 'id'=>$movie['id']]);
-    echo $movie->year; 
-}
-//teste para github contribuitions    
-?>
+
+<div class="col-sm-4 col-xs-12">
+    <div class="filmes">
+        <a href="<?=Url::to(['/search-movie/view', 'id'=>$model->id])?>"><h2><?=$model->title?></h2></a>
+        <img src="<?=$model->poster?>">
+    </div>
+</div>

@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
+use yii\widgets\ListView;
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\SearchMovieSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -39,7 +40,12 @@ $this->title = Yii::t('app', 'Search Movies');
         ],
     ]); */?>
 
-    <?php echo $this->render('_filmes', ['movies' => $movies]); ?>
+    <?= ListView::widget([
+        'dataProvider' => $dataProvider,
+        'layout' => "<div class\"items\">{items}</div>",
+        'itemView' => '_filmes',
+    ]);
+    ?>
     <?php Pjax::end(); ?>
 
 </div>
