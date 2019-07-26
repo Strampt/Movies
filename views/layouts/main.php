@@ -31,41 +31,37 @@ AppAsset::register($this);
 
 <div class="wrap">
     <?php
-    NavBar::begin([
-        'brandLabel' => 'Movies',
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
-        ],
-    ]);
-    echo GhostNav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'encodeLabels' => false,
-        'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'Search', 'url' => ['/search-movie/index']],
-            ['label' => 'Movie', 'url' => ['/title-movie/index']],
-            [
-                'label' => 'Administration',
-                'items' => UserManagementModule::menuItems()
+    if(Yii::$app->user->isSuperAdmin){
+        NavBar::begin([
+            'brandLabel' => 'Movies',
+            'brandUrl' => Yii::$app->homeUrl,
+            'options' => [
+                'class' => 'navbar-inverse navbar-fixed-top',
             ],
-            Yii::$app->user->isGuest ? (
+        ]);
+        echo GhostNav::widget([
+            'options' => ['class' => 'navbar-nav navbar-right'],
+            'encodeLabels' => false,
+            'items' => [
+                ['label' => 'Home', 'url' => ['/site/index']],
+                ['label' => 'Search', 'url' => ['/search-movie/index']],
+                ['label' => 'Movie', 'url' => ['/title-movie/index']],
                 [
-                    'label' => 'Login', 'url' => ['/user-management/auth/login'],
-                    'visible' => !Yii::$app->user->isGuest
-                ]
-            ) : (
-                [
-                'label' => Yii::$app->user->identity->username,
-                'items' => [
-                    '<li role="presentation" class="divider"></li>',
-                    ['label' => 'Change password', 'url' => ['/user-management/auth/change-own-password']],
-                    ['label' => 'Logout', 'url' => ['/user-management/auth/logout']],
+                    'label' => 'Administration',
+                    'items' => UserManagementModule::menuItems()
                 ],
-            ])
-        ],
-    ]);
-    NavBar::end();
+                [
+                    'label' => Yii::$app->user->identity->username,
+                    'items' => [
+                        '<li role="presentation" class="divider"></li>',
+                        ['label' => 'Change password', 'url' => ['/user-management/auth/change-own-password']],
+                        ['label' => 'Logout', 'url' => ['/user-management/auth/logout']],
+                    ],
+                ]
+            ],
+        ]);
+        NavBar::end();
+    }
     ?>
 
     <div class="container">
