@@ -8,6 +8,7 @@ use app\models\SearchMovieSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\data\ActiveDataProvider;
 
 /**
  * SearchMovieController implements the CRUD actions for SearchMovie model.
@@ -34,6 +35,7 @@ class SearchMovieController extends Controller
     {
         $searchModel = new SearchMovieSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider->setPagination(['pageSize' => 8]);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
