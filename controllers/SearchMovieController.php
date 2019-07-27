@@ -8,7 +8,6 @@ use app\models\SearchMovieSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\data\ActiveDataProvider;
 
 /**
  * SearchMovieController implements the CRUD actions for SearchMovie model.

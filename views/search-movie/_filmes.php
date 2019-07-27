@@ -1,6 +1,5 @@
 <?php
 use yii\helpers\Html;
-use yii\data\ActiveDataProvider;
 use app\models\SearchMovie;
 use yii\helpers\Url;
 ?>

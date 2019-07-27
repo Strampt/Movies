@@ -4,9 +4,6 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
 use yii\widgets\ListView;
-use yii\widgets\LinkPager;
-use yii\data\ActiveDataProvider;
-use app\models\SearchMovie;
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\SearchMovieSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
