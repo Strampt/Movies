@@ -113,3 +113,29 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+
+.overlay {
+    position: absolute;
+    display: block;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 60%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: rgb(103, 155, 253);
+    text-align: center;
+}
+
+.filmes:hover .overlay {
+    opacity: 1;
+}
+
+#poster {
+    width: 60%; 
+    display: block; 
+    margin: auto;
+}
