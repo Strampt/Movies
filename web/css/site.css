@@ -1,6 +1,7 @@
 html,
 body {
     height: 100%;
+    /*background-color: #000000;*/
 }
 
 .wrap {
@@ -96,12 +97,17 @@ a.desc:after {
     border: none;
 }
 
-@media(max-width:767px) {
+@media(max-width:768px) {
     .nav li > form > button.logout {
         display:block;
         text-align: left;
         width: 100%;
         padding: 10px 15px;
+    }
+    #poster {
+        width: 47%; 
+        display: block; 
+        margin: auto;
     }
 }
 
@@ -123,7 +129,7 @@ a.desc:after {
     left: 0;
     right: 0;
     height: 100%;
-    width: 60%;
+    width: 65%;
     opacity: 0;
     transition: .5s ease;
     background-color: rgb(103, 155, 253);
@@ -134,8 +140,10 @@ a.desc:after {
     opacity: 1;
 }
 
-#poster {
-    width: 60%; 
-    display: block; 
-    margin: auto;
+@media(min-width:768px) {
+    #poster {
+        width: 67%; 
+        display: block; 
+        margin: auto;
+    }
 }
