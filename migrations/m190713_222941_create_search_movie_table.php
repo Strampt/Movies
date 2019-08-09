@@ -15,7 +15,7 @@ class m190713_222941_create_search_movie_table extends Migration
         $this->createTable('{{%search_movie}}', [
             'id' => $this->primaryKey(),
             'imdbid' => $this->string(30)->notNull()->unique(),
-            'title' => $this->string(40)->notNull(),
+            'title' => $this->string(100)->notNull(),
             'year' => $this->integer(),
             'type' => $this->string(15),
             'poster' => $this->string(2000),
