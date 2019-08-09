@@ -104,11 +104,6 @@ a.desc:after {
         width: 100%;
         padding: 10px 15px;
     }
-    #poster {
-        width: 47%; 
-        display: block; 
-        margin: auto;
-    }
 }
 
 .nav > li > form > button.logout:focus,
@@ -120,6 +115,12 @@ a.desc:after {
     outline: none;
 }
 
+#poster {
+    width: 200px;
+    height: 250px; 
+    display: block; 
+    margin: auto;
+}
 .overlay {
     position: absolute;
     display: block;
@@ -129,7 +130,7 @@ a.desc:after {
     left: 0;
     right: 0;
     height: 100%;
-    width: 65%;
+    width: 200px;
     opacity: 0;
     transition: .5s ease;
     background-color: rgb(103, 155, 253);
@@ -138,12 +139,4 @@ a.desc:after {
 
 .filmes:hover .overlay {
     opacity: 1;
-}
-
-@media(min-width:768px) {
-    #poster {
-        width: 67%; 
-        display: block; 
-        margin: auto;
-    }
 }
