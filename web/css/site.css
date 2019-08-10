@@ -140,3 +140,7 @@ a.desc:after {
 .filmes:hover .overlay {
     opacity: 1;
 }
+
+.col-sm-3.col-xs-6 {
+    margin-bottom: 20px;
+}
