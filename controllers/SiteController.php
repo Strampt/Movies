@@ -36,13 +36,12 @@ class SiteController extends Controller
         ];
     }
 
-    /**
-     * Displays homepage.
-     *
-     * @return string
-     */
-    public function actionIndex()
+    protected function findModel($id)
     {
-        return $this->render('index');
+        if (($model = TitleMovie::findOne($id)) !== null) {
+            return $model;
+        }
+
+        throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
     }
 }
