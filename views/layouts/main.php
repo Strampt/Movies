@@ -43,7 +43,7 @@ AppAsset::register($this);
             'options' => ['class' => 'navbar-nav navbar-right'],
             'encodeLabels' => false,
             'items' => [
-                ['label' => 'Home', 'url' => ['/site/index']],
+                //['label' => 'Home', 'url' => ['/search-movie/index']],
                 ['label' => 'Search', 'url' => ['/search-movie/index']],
                 ['label' => 'Movie', 'url' => ['/title-movie/index']],
                 [
