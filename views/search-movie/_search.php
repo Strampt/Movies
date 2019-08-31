@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
+use yii\bootstrap\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\SearchMovieSearch */
@@ -17,13 +17,16 @@ use yii\widgets\ActiveForm;
             'data-pjax' => 1,
             'class' => 'form-inline',
         ],
+        'fieldConfig' => [
+            'template'=>"{input}\n",
+        ],
     ]); ?>
 
     <?php // $form->field($model, 'id') ?>
 
     <?php // $form->field($model, 'imdbid') ?>
 
-    <?php echo $form->field($model, 'title')->input('text', ['placeholder' => Yii::t('app', 'Enter a Movie')]); ?>
+    <?= $form->field($model, 'title')->textInput(['placeholder'=>$model->getAttributeLabel('movie title'), 'autocomplete'=>'off']); ?>
 
     <?php // $form->field($model, 'year') ?>
 
