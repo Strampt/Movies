@@ -25,12 +25,13 @@ $this->title = Yii::t('app', 'Search Movies');
     <?php Pjax::begin(); ?>
     <?php echo $this->render('_search', ['model' => $searchModel]); ?>
 
+    <p></p>
     <!-- EUREKA -->
     <?php 
-    if($dataProvider->totalCount == 0 && strlen($searchModel->title) > 3) {
+    /*if($dataProvider->totalCount == 0 && strlen($searchModel->title) > 3) {
         //preciso de chamar o metodo que está nos comands para ir buscar o filme :D
         echo Html::tag('h2', $searchModel->title);
-    } ?>
+    } */?>
 
     <?php /*GridView::widget([
         'dataProvider' => $dataProvider,
