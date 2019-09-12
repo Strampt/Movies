@@ -11,10 +11,11 @@ class MovieController extends Controller
     /**
      * Este comando é para inserir os dados da omdb na bd
      * @param string $filme
-     * 
-     * 
+     *
+     *
+     * @throws \yii\db\Exception
      */
-    public function actionInsertSearchMovie ($filme) 
+    public function actionInsertSearchMovie ($filme)
     {
         $filme = str_replace(" ", "+", $filme);
         $urlSMovies = 'http://www.omdbapi.com/?s='.$filme.'&page=1&apikey=a782fdd1';
@@ -27,46 +28,32 @@ class MovieController extends Controller
             $yearSMovie = $dataSMovies['Search'][$i]['Year'];
             $typeSMovie = $dataSMovies['Search'][$i]['Type'];
             $posterSMovie = $dataSMovies['Search'][$i]['Poster'];
-            MovieController::actionInsertTitleMovie($imbdbidSMovie);
-            Yii::$app->db->createCommand()->insert('search_movie', [
-                'imdbid' => $imbdbidSMovie,
-                'title' => $titleSMovie,
-                'year' => $yearSMovie,
-                'type' => $typeSMovie,
-                'poster' => $posterSMovie,
-            ])->execute();
+            $lastDate = '2000';
+            if ($yearSMovie >= $lastDate) {
+                $urlTMovies = 'http://www.omdbapi.com/?i=' . $imbdbidSMovie . '&plot=full&apikey=a782fdd1';
+                $jsonTMovies = file_get_contents($urlTMovies);
+                $dataTMovies = json_decode($jsonTMovies, true);
+                $releasedTMovie = $dataTMovies['Released'];
+                $runtimeTMovie = $dataTMovies['Runtime'];
+                $genreTMovie = $dataTMovies['Genre'];
+                $plotTMovie = $dataTMovies['Plot'];
+                $imdbratingTMovie = $dataTMovies['imdbRating'];
+                $directorTMovie = $dataTMovies['Director'];
+                $releasedTMovie = date('Y-m-d', strtotime($releasedTMovie));
+                Yii::$app->db->createCommand()->insert('search_movie', [
+                    'imdbid' => $imbdbidSMovie,
+                    'title' => $titleSMovie,
+                    'year' => $yearSMovie,
+                    'type' => $typeSMovie,
+                    'poster' => $posterSMovie,
+                    'released' => $releasedTMovie,
+                    'runtime' => $runtimeTMovie,
+                    'genre' => $genreTMovie,
+                    'plot' => $plotTMovie,
+                    'imdbrating' => $imdbratingTMovie,
+                    'director' => $directorTMovie,
+                ])->execute();
+            }
         }
-    }
-    
-    private function actionInsertTitleMovie($id) 
-    {
-        $urlTMovies = 'http://www.omdbapi.com/?i='.$id.'&plot=full&apikey=a782fdd1';
-        $jsonTMovies = file_get_contents($urlTMovies);
-        $dataTMovies = json_decode($jsonTMovies, true);
-        $imdbidTMovie = $dataTMovies['imdbID'];
-        $titleTMovie = $dataTMovies['Title'];
-        $yearTMovie = $dataTMovies['Year'];
-        $typeTMovie = $dataTMovies['Type'];
-        $releasedTMovie = $dataTMovies['Released'];
-        $runtimeTMovie = $dataTMovies['Runtime'];
-        $genreTMovie = $dataTMovies['Genre'];
-        $plotTMovie = $dataTMovies['Plot'];
-        $posterTMovie = $dataTMovies['Poster'];
-        $imdbratingTMovie = $dataTMovies['imdbRating'];
-        $directorTMovie = $dataTMovies['Director'];
-        $releasedTMovie = date('Y-m-d', strtotime($releasedTMovie));
-        Yii::$app->db->createCommand()->insert('title_movie', [
-            'imdbid' => $imdbidTMovie,
-            'title' => $titleTMovie,
-            'year' => $yearTMovie,
-            'type' => $typeTMovie,
-            'poster' => $posterTMovie,
-            'released' => $releasedTMovie,
-            'runtime' => $runtimeTMovie,
-            'genre' => $genreTMovie,
-            'plot' => $plotTMovie,
-            'imdbrating' => $imdbratingTMovie,
-            'director' =>$directorTMovie,
-        ])->execute();
     }
 }
