@@ -46,7 +46,6 @@ AppAsset::register($this);
             'items' => [
                 //['label' => 'Home', 'url' => ['/search-movie/index']],
                 ['label' => 'Search', 'url' => ['/search-movie/index']],
-                ['label' => 'Movie', 'url' => ['/title-movie/index']],
                 [
                     'label' => 'Administration',
                     'items' => UserManagementModule::menuItems()
