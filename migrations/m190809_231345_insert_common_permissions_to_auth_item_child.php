@@ -4,22 +4,19 @@ use yii\db\Migration;
 use webvimark\modules\UserManagement\models\rbacDB\Permission;
 
 /**
- * Class m190809_231345_insert_common_permissions
+ * Class m190809_231345_insert_common_permissionsToauthitemchild
  */
-class m190809_231345_insert_common_permissions extends Migration
+class m190809_231345_insert_common_permissions_to_auth_item_child extends Migration
 {
     public function up()
     {
-        Permission::assignRoutes(\Yii::$app->getModule('user-management')->commonPermissionName, ['/site/index']);
         Permission::assignRoutes(\Yii::$app->getModule('user-management')->commonPermissionName, ['/site/error']);
         Permission::assignRoutes(\Yii::$app->getModule('user-management')->commonPermissionName, ['/search-movie/index']);
-        Permission::assignRoutes(\Yii::$app->getModule('user-management')->commonPermissionName, ['/title-movie/index']);
-
     }
 
     public function down()
     {
-        echo "m190809_231345_insert_common_permissions cannot be reverted.\n";
+        echo "m190809_231345_insert_common_permissionsToauthitemchild cannot be reverted.\n";
 
         return false;
     }
@@ -33,7 +30,7 @@ class m190809_231345_insert_common_permissions extends Migration
 
     public function safeDown()
     {
-        echo "m190809_231345_insert_common_permissions cannot be reverted.\n";
+        echo "m190809_231345_insert_common_permissionsToauthitemchild cannot be reverted.\n";
 
         return false;
     }
