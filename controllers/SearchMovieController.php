@@ -14,6 +14,8 @@ use yii\filters\VerbFilter;
  */
 class SearchMovieController extends Controller
 {
+    public $freeAccessActions = ['index', 'view'];
+
     /**
      * {@inheritdoc}
      */
