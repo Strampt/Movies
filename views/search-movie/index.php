@@ -25,7 +25,6 @@ $this->title = Yii::t('app', 'Search Movies');
     <?php Pjax::begin(); ?>
     <?php echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <p></p>
     <!-- EUREKA -->
     <?php 
     /*if($dataProvider->totalCount == 0 && strlen($searchModel->title) > 3) {
