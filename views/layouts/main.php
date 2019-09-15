@@ -64,7 +64,7 @@ AppAsset::register($this);
     }
     ?>
 
-    <div class="container" <?= Yii::$app->user->isGuest ? "style='padding:10px 15px 10px'>" : "style='padding:70px 15px 20px'>" ?>
+    <div class="container" <?= Yii::$app->user->isGuest ? "style='padding-top:10px'>" : "style='padding-top:70px'>" ?>
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
