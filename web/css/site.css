@@ -10,14 +10,9 @@ body{
     margin: 0 auto -60px;
     padding: 0 0 60px;
 }
-/*
-.wrap > .container {
-    padding: 70px 15px 20px;
-}
-*/
+
 .footer {
     height: 60px;
-    /*background-color: #f5f5f5;*/
     border-top: 1px solid #ddd;
     padding-top: 20px;
 }
@@ -313,5 +308,15 @@ h4.titulo {
 
     div.container {
         padding-right: 0px;
+        padding-left: 0px;
+    }
+
+    div.wrap, .footer {
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+
+    body {
+        overflow-x: hidden;
     }
 }
