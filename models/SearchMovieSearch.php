@@ -18,7 +18,8 @@ class SearchMovieSearch extends SearchMovie
     {
         return [
             [['id', 'year'], 'integer'],
-            [['imdbid', 'title', 'type', 'poster'], 'safe'],
+            [['imdbid', 'title', 'type', 'poster', 'released', 'runtime', 'genre', 'plot', 'director'], 'safe'],
+            [['imdbrating'], 'number'],
         ];
     }
 
@@ -60,12 +61,18 @@ class SearchMovieSearch extends SearchMovie
         $query->andFilterWhere([
             'id' => $this->id,
             'year' => $this->year,
+            'released' => $this->released,
+            'imdbrating' => $this->imdbrating,
         ]);
 
         $query->andFilterWhere(['like', 'imdbid', $this->imdbid])
             ->andFilterWhere(['like', 'title', $this->title])
             ->andFilterWhere(['like', 'type', $this->type])
-            ->andFilterWhere(['like', 'poster', $this->poster]);
+            ->andFilterWhere(['like', 'poster', $this->poster])
+            ->andFilterWhere(['like', 'runtime', $this->runtime])
+            ->andFilterWhere(['like', 'genre', $this->genre])
+            ->andFilterWhere(['like', 'plot', $this->plot])
+            ->andFilterWhere(['like', 'director', $this->director]);
 
         return $dataProvider;
     }
