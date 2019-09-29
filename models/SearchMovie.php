@@ -32,10 +32,16 @@ class SearchMovie extends \yii\db\ActiveRecord
         return [
             [['imdbid', 'title'], 'required'],
             [['year'], 'integer'],
+            [['released'], 'safe'],
+            [['plot'], 'string'],
+            [['imdbrating'], 'number'],
             [['imdbid'], 'string', 'max' => 30],
-            [['title'], 'string', 'max' => 40],
-            [['type'], 'string', 'max' => 15],
+            [['title', 'director'], 'string', 'max' => 100],
+            [['type'], 'string', 'max' => 50],
             [['poster'], 'string', 'max' => 2000],
+            [['runtime'], 'string', 'max' => 15],
+            [['genre'], 'string', 'max' => 150],
+            [['imdbid'], 'unique'],
         ];
     }
 
@@ -45,12 +51,18 @@ class SearchMovie extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'imdbid' => Yii::t('app', 'Imdbid'),
-            'title' => Yii::t('app', 'Title'),
-            'year' => Yii::t('app', 'Year'),
-            'type' => Yii::t('app', 'Type'),
-            'poster' => Yii::t('app', 'Poster'),
+            'id' => 'ID',
+            'imdbid' => 'Imdbid',
+            'title' => 'Title',
+            'year' => 'Year',
+            'type' => 'Type',
+            'poster' => 'Poster',
+            'released' => 'Released',
+            'runtime' => 'Runtime',
+            'genre' => 'Genre',
+            'plot' => 'Plot',
+            'imdbrating' => 'Imdbrating',
+            'director' => 'Director',
         ];
     }
 }
