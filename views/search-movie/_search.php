@@ -26,7 +26,7 @@ use yii\bootstrap\ActiveForm;
 
     <?php // $form->field($model, 'imdbid') ?>
 
-    <?= $form->field($model, 'title')->textInput(['placeholder'=>$model->getAttributeLabel('movie title'), 'autocomplete'=>'off']); ?>
+    <?= $form->field($model, 'title')->textInput(['id' => 'titulo-filme', 'placeholder'=>$model->getAttributeLabel('Search Movie'), 'autocomplete'=>'off']); ?>
 
     <?php // $form->field($model, 'year') ?>
 
@@ -34,6 +34,10 @@ use yii\bootstrap\ActiveForm;
 
     <?php // echo $form->field($model, 'poster') ?>
 
+    <!--
+    glyphicon glyphicon-search
+    Criar script, caso seja clickada a search bar, ela aumentar. add() css class
+     -->
     <div class="form-group">
         <?=  Html::submitButton(Yii::t('app', 'Search'), ['class' => 'btn btn-primary']) ?>
         <?php // Html::resetButton(Yii::t('app', 'Reset'), ['class' => 'btn btn-outline-secondary']) ?>
