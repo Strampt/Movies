@@ -75,7 +75,7 @@ $this->title = Yii::t('app', 'Search Movies');
             'lastPageLabel' => 'Last',
             'maxButtonCount' => 4,
             'options' => [
-                'class' => 'pagination col-xs-12'
+                'class' => 'pagination pager col-xs-12'
             ],
         ],
     ]);
