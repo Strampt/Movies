@@ -26,7 +26,7 @@ use yii\bootstrap\ActiveForm;
 
     <?php // $form->field($model, 'imdbid') ?>
 
-    <?= Html::encode($form->field($model, 'title')->textInput(['id' => 'titulo-filme', 'placeholder'=>$model->getAttributeLabel('Search Movie'), 'autocomplete'=>'off'])); ?>
+    <?= $form->field($model, Html::encode('title'))->textInput(['id' => 'titulo-filme', 'placeholder'=>$model->getAttributeLabel('Search Movie'), 'autocomplete'=>'off']); ?>
 
     <?php // $form->field($model, 'year') ?>
 
