@@ -14,19 +14,26 @@ use yii\bootstrap\ActiveForm;
         'action' => ['index'],
         'method' => 'get',
         'options' => [
-            'data-pjax' => 1,
-            'class' => 'form-inline',
+            'data-pjax' => true,
+            //'class' => 'form-inline',
+            'tag' => 'div',
+            'class' => 'input-group col-md-offset-6',
         ],
-        'fieldConfig' => [
-            'template'=>"{input}\n",
-        ],
+        /*'fieldConfig' => [
+            'template'=>'{input}',
+        ],*/
     ]); ?>
 
     <?php // $form->field($model, 'id') ?>
 
     <?php // $form->field($model, 'imdbid') ?>
 
-    <?= $form->field($model, Html::encode('title'))->textInput(['id' => 'titulo-filme', 'placeholder'=>$model->getAttributeLabel('Search Movie'), 'autocomplete'=>'off']); ?>
+    <?= $form->field($model, Html::encode('title'), ['options'=>[
+        'tag'=>'div',
+        'class'=>'form-group field-loginform-username has-feedback'
+        ],
+        'template'=>'{input}<span class="glyphicon glyphicon-search form-control-feedback"></span>'
+        ])->textInput(['id' => 'titulo-filme', 'type'=>'search', 'placeholder'=>'What movie are you looking for?', 'autocomplete'=>'off']); ?>
 
     <?php // $form->field($model, 'year') ?>
 
@@ -40,10 +47,10 @@ use yii\bootstrap\ActiveForm;
      -->
 
 
-    <div class="form-group">
-        <?=  Html::submitButton(Yii::t('app', 'Search'), ['class' => 'btn btn-primary']) ?>
+    <span class="input-group-btn">
+        <?= Html::submitButton(Yii::t('app', 'Search'), ['class' => 'btn btn-primary']) ?>
         <?php // Html::resetButton(Yii::t('app', 'Reset'), ['class' => 'btn btn-outline-secondary']) ?>
-    </div>
+    </span>
 
     <?php ActiveForm::end(); ?>
 
