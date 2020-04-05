@@ -36,7 +36,7 @@ class SearchMovieController extends Controller
     {
         $searchModel = new SearchMovieSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-        $dataProvider->setPagination(['pageSize' => 8]);
+        $dataProvider->setPagination(['pageSize' => 12]);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
