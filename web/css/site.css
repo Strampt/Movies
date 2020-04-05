@@ -2,6 +2,7 @@ html,
 body{
     height: 100%;
     background: linear-gradient(0.25turn, #adcdff, #ebf8e1, #adcdff);
+    box-sizing: border-box;
 }
 
 .wrap {
@@ -90,6 +91,14 @@ a.desc:after {
 .nav li > form > button.logout {
     padding: 15px;
     border: none;
+}
+
+#titulo-filme {
+   border-radius: 20px 0px 0px 20px;
+}
+
+#w0 > span > button {
+    border-radius: 0px 20px 20px 0px;
 }
 
 @media(max-width:768px) {
