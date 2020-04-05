@@ -13,8 +13,6 @@ $this->title = Yii::t('app', 'Search Movies');
 ?>
 <div class="search-movie-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
     <p>
         <?php 
         if(!Yii::$app->user->isGuest) {
@@ -72,7 +70,8 @@ $this->title = Yii::t('app', 'Search Movies');
         'itemView' => '_filmes',
         'pager' => [
             'firstPageLabel' => 'First',
-            'lastPageLabel' => 'Last',
+            'nextPageLabel' => 'Next',
+            'lastPageLabel' => false,
             'maxButtonCount' => 4,
             'options' => [
                 'class' => 'pagination pager col-xs-12'
