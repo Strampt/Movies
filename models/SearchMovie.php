@@ -65,4 +65,10 @@ class SearchMovie extends \yii\db\ActiveRecord
             'director' => 'Director',
         ];
     }
+    public function getGenre()
+    {
+        //procurar genre no searchmovie
+        return SearchMovie::find()->distinct('true')->select('genre')->all();
+    }
+
 }

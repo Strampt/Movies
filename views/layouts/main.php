@@ -11,6 +11,7 @@ use yii\widgets\Breadcrumbs;
 use webvimark\modules\UserManagement\components\GhostNav;
 use webvimark\modules\UserManagement\UserManagementModule;
 use app\assets\AppAsset;
+use app\models\SearchMovie;
 
 AppAsset::register($this);
 ?>
@@ -30,7 +31,7 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
-<div class="wrap">
+<div class="row">
     <?php
     if(Yii::$app->user->isSuperAdmin){
         NavBar::begin([
@@ -61,17 +62,43 @@ AppAsset::register($this);
             ],
         ]);
         NavBar::end();
+    } else {
+        NavBar::begin([
+            'options' => [
+                'class' => 'col-md-2',
+            ],
+        ]);
+        echo Nav::widget([
+            'options' => ['class' => 'sidebar'],
+            'encodeLabels' => false,
+
+            'items' => [
+                '<ul >',
+                '<li role="presentation" class="divider">',
+                    ['label' => 'Search', 'url' => ['/search-movie/index']],
+                '</li>',
+                '</ul>',
+                //['label' => 'Home', 'url' => ['/search-movie/index']],
+            ],
+        ]);
+        NavBar::end();
     }
     ?>
 
-    <div class="container" <?= Yii::$app->user->isGuest ? "style='padding-top:10px'>" : "style='padding-top:70px'>" ?>
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= Alert::widget() ?>
-        <?= $content ?>
+    <div class="col-md-10" <?= Yii::$app->user->isGuest ? "style='padding-top:10px'>" : "style='padding-top:70px'>" ?>
+        <div class="container">
+            <?php
+                /*$eu = SearchMovie::getGenre();
+                var_dump($eu);
+                echo $eu[0]['genre'];*/
+            ?>
+            <?= Breadcrumbs::widget([
+                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+            ]) ?>
+            <?= Alert::widget() ?>
+            <?= $content ?>
+        </div>
     </div>
-</div>
 
 <footer class="footer">
     <div class="container">
